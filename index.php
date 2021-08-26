@@ -86,31 +86,99 @@
     // Stampare ogni data con i relativi post.
 
     $dates = [
-        [
-            "31/01/2007" =>"dieta pronta",
-            "sembra impegnativa",
-            "speriamo bene"
+        "31/01/2007" =>[
+            [
+                "title" => "dieta pronta",
+                "author" => "Ajeje"
+            ]
         ],
-        [
-            "oggi pasta",
-            "dovrei mettermi a dieta",
-            "dai comincio domani"
+        "17/04/2007" =>[
+            [
+                "title" => "come va",
+                "author" => "Ajeje"
+            ]
         ],
-        [
-            "doppio allenamento oggi",
-            "devo passare a prendere le barrette",
-            "potrei andarci a corsa"
+        "15/01/2008" =>[
+            [
+                "title" => "ciao",
+                "author" => "Ajeje"
+            ]
         ]
     ];
-        for ($row = 0; $row < 3; $row++) {
-            echo "<p><b>post $row</b></p>";
-            echo "<ul>";
-            for ($col = 0; $col < 3; $col++) {
-              echo "<li>".$dates[$row][$col]."</li>";
-            }
-            echo "</ul>";
-          }
+
+    /*
+    $dates[$keys[i]]
+    [
+        [
+            "title" => "ciao",
+            "author" => "sembra ok"
+        ]
+    ]
+
+    $dates[$keys[$i]][$x]["title"]
+    [
+        "title" => "ciao",
+        "author" => "sembra ok"
+    ]
+    */
+
+    $keys = array_keys($dates);
+    for ($i = 0; $i < count($dates); $i++) {
+        echo "<p><b>post $i</b></p>";
+        echo "<ul>";
+        for ($x = 0; $x < count($dates[$keys[$i]]); $x++) {
+            echo "<li>" .$dates[$keys[$i]][$x]["title"]. $dates[$keys[$i]][$x]["author"]."</li>";
+        }
+        echo "</ul>";
+    }
     ?>
- 
+ <hr>
+
+<h5>snack-4</h5>
+
+<?php
+// snack-4
+// Creare un array contenente qualche alunno di un’ipotetica classe.
+// Ogni alunno avrà i seguenti dati:
+// nome
+// cognome
+// un array contenente i suoi voti scolastici
+// Stampare nome, cognome e la media dei voti di ogni alunno.
+
+$students = [
+    "studentUno" =>[
+        [
+            "name" => "Pasquale",
+            "surname" => "Grande",
+            "votes" => [2,5,3]
+        ]
+    ],
+    "studentDue" =>[
+        [
+            "name" => "Genoveffa",
+            "surname" => "Locullo",
+            "votes" => [7,1,10]
+        ]
+    ],
+    "studentTre" =>[
+        [
+            "name" => "Ajeje",
+            "surname" => "Brazorf",
+            "votes" => [7,7,7]
+        ]
+    ]
+];
+$keysDue = array_keys($students);
+    for ($i = 0; $i < count($students); $i++) {
+        echo "<p><b>studente $i</b></p>";
+        echo "<ul>";
+        for ($x = 0; $x < count($students[$keysDue[$i]]); $x++) {
+            for ($y=0; $y <count($students[$keysDue[$x]]); $y++) { 
+                echo "<li>".$students[$keysDue[$i]][$x]["name"]. $students[$keysDue[$i]][$x]["surname"]. $students[$keysDue[$x]][$y]["votes"]."</li>";
+            }
+        }
+        echo "</ul>";
+    }
+?>
 </body>
 </html>
