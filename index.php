@@ -84,7 +84,33 @@
     // DD/MM/YYYY (ad es 31/01/2007) e come valore un array di post associati
     // a quella data.
     // Stampare ogni data con i relativi post.
-    ?>
 
+    $dates = [
+        [
+            "31/01/2007" =>"dieta pronta",
+            "sembra impegnativa",
+            "speriamo bene"
+        ],
+        [
+            "oggi pasta",
+            "dovrei mettermi a dieta",
+            "dai comincio domani"
+        ],
+        [
+            "doppio allenamento oggi",
+            "devo passare a prendere le barrette",
+            "potrei andarci a corsa"
+        ]
+    ];
+        for ($row = 0; $row < 3; $row++) {
+            echo "<p><b>post $row</b></p>";
+            echo "<ul>";
+            for ($col = 0; $col < 3; $col++) {
+              echo "<li>".$dates[$row][$col]."</li>";
+            }
+            echo "</ul>";
+          }
+    ?>
+ 
 </body>
 </html>
