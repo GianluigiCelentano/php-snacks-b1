@@ -107,7 +107,7 @@
     ];
 
     /*
-    $dates[$keys[i]]
+    $dates[$keys[$i]]
     [
         [
             "title" => "ciao",
@@ -127,7 +127,7 @@
         echo "<p><b>post $i</b></p>";
         echo "<ul>";
         for ($x = 0; $x < count($dates[$keys[$i]]); $x++) {
-            echo "<li>" .$dates[$keys[$i]][$x]["title"]. $dates[$keys[$i]][$x]["author"]."</li>";
+        echo "<li>" . $keys[$i] . " " .$dates[$keys[$i]][$x]["title"]. $dates[$keys[$i]][$x]["author"]."</li>";
         }
         echo "</ul>";
     }
@@ -174,7 +174,11 @@ $keysDue = array_keys($students);
         echo "<ul>";
         for ($x = 0; $x < count($students[$keysDue[$i]]); $x++) {
             for ($y=0; $y <count($students[$keysDue[$x]]); $y++) { 
-                echo "<li>".$students[$keysDue[$i]][$x]["name"]. $students[$keysDue[$i]][$x]["surname"]. $students[$keysDue[$x]][$y]["votes"]."</li>";
+                $printVotes = "";
+                for($v=0; $v<count($students[$keysDue[$x]][$y]["votes"]); $v++){
+                    $printVotes = $printVotes . " " . $students[$keysDue[$i]][$x]["votes"][$v];
+                }
+                echo "<li>".$students[$keysDue[$i]][$x]["name"]. " " .$students[$keysDue[$i]][$x]["surname"]. $printVotes ."</li>";
             }
         }
         echo "</ul>";
